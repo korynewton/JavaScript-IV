@@ -13,24 +13,24 @@ class Person {
 }
 
 //Test Person 1:
-const person1test = new Person ({
-    name:'John',
-    age: 93,
-    location: 'Australia',
-    gender: 'male'
-})
-console.log(person1test.name, person1test.age, person1test.location, person1test.gender)
-console.log(person1test.speak())
+// const person1test = new Person ({
+//     name:'John',
+//     age: 93,
+//     location: 'Australia',
+//     gender: 'male'
+// })
+// console.log(person1test.name, person1test.age, person1test.location, person1test.gender)
+// console.log(person1test.speak())
 
-//Test Person 2:
-const person2test = new Person ({
-    name:'Ellen',
-    age: 54,
-    location: 'California',
-    gender: 'female'
-})
-console.log(person2test.name, person2test.age, person2test.location, person2test.gender)
-console.log(person2test.speak())
+// //Test Person 2:
+// const person2test = new Person ({
+//     name:'Ellen',
+//     age: 54,
+//     location: 'California',
+//     gender: 'female'
+// })
+// console.log(person2test.name, person2test.age, person2test.location, person2test.gender)
+// console.log(person2test.speak())
 
 
 //Instructor class
@@ -50,23 +50,24 @@ class Instructor extends Person {
 }
 
 //Test instructor:
-const instructorTest = new Instructor({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
-    gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
-})
+// const instructorTest = new Instructor({
+//     name: 'Fred',
+//     location: 'Bedrock',
+//     age: 37,
+//     gender: 'male',
+//     favLanguage: 'JavaScript',
+//     specialty: 'Front-end',
+//     catchPhrase: `Don't forget the homies`
+// })
 
-const testObj = {
-    name: "test name",
-}
+// const testObj = {
+//     name: "test name",
+// }
 
-console.log(instructorTest.catchPhrase, instructorTest.name)
-console.log(instructorTest.speak())
-instructorTest.grade(testObj, 'basket weaving')
+// console.log(instructorTest.catchPhrase, instructorTest.name)
+// console.log(instructorTest.speak())
+// instructorTest.grade(testObj, 'basket weaving')
+
 
 //Student Class:
 class Student extends Person {
@@ -87,20 +88,43 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`)
     }
-    
-    
+}
+
+//Testing Student class:
+// const testStudent = new Student({
+//     name:'John',
+//     age: 93,
+//     location: 'Australia',
+//     gender: 'male',
+//     favSubjects: ['HTML', 'CSS', 'JavaScript']
+// })
+
+// testStudent.listSubjects()
+// testStudent.PRAssignment('algebra')
+// testStudent.sprintChallenge('algebra')
+
+
+//ProjectManager class
+class ProjectManager extends Instructor {
+    constructor(projectManagerAttrs) {
+        super(projectManagerAttrs);
+        this.gradClassName = projectManagerAttrs.gradClassName;
+        this.favInstructor = projectManagerAttrs.favInstructor;
+    }
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`)
+    }
+    debugsCode(student, subject){
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
+    }
 }
 
 
-const testStudent = new Student({
-    name:'John',
-    age: 93,
-    location: 'Australia',
-    gender: 'male',
-    favSubjects: ['subj1', 'subj2', 'subj3']
-})
+//Testing PM class:
+// const PMTest = new ProjectManager({
+//     name: 'Billy Bob'
+// });
 
-testStudent.listSubjects()
-testStudent.PRAssignment('algebra')
-testStudent.sprintChallenge('algebra')
-
+// PMTest.standUp('PM group')
+// PMTest.debugsCode(testStudent, 'Python')
+// PMTest.demo('HTML')
