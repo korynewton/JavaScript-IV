@@ -8,7 +8,7 @@ class Person {
         this.gender = personAttrs.gender; 
     }
     speak() {
-        return `Hello, my name is ${this.name} and I am from ${this.location}.`
+        console.log(`Hello, my name is ${this.name} and I am from ${this.location}.`) 
     }
 }
 
@@ -61,13 +61,13 @@ class Instructor extends Person {
 // })
 
 // const testObj = {
-//     name: "test name",
+//     name: "<studentName>",
 // }
 
 // console.log(instructorTest.catchPhrase, instructorTest.name)
 // console.log(instructorTest.speak())
 // instructorTest.grade(testObj, 'basket weaving')
-
+// instructorTest.demo('javascript')
 
 //Student Class:
 class Student extends Person {
@@ -91,17 +91,21 @@ class Student extends Person {
 }
 
 //Testing Student class:
-// const testStudent = new Student({
-//     name:'John',
-//     age: 93,
-//     location: 'Australia',
-//     gender: 'male',
-//     favSubjects: ['HTML', 'CSS', 'JavaScript']
-// })
+const testStudent = new Student({
+    name:'Jane',
+    age: 25,
+    location: 'New York',
+    gender: 'female',
+    favSubjects: ['HTML', 'CSS', 'JavaScript'],
+    previousBackground: 'artist',
+    className: 'FSW17'
+})
 
+// console.log(testStudent.className, testStudent.previousBackground)
 // testStudent.listSubjects()
 // testStudent.PRAssignment('algebra')
 // testStudent.sprintChallenge('algebra')
+// testStudent.speak()
 
 
 //ProjectManager class
@@ -121,10 +125,13 @@ class ProjectManager extends Instructor {
 
 
 //Testing PM class:
-// const PMTest = new ProjectManager({
-//     name: 'Billy Bob'
-// });
+const PMTest = new ProjectManager({
+    name: 'Billy Bob',
+    gradClassName: 'FSW83259',
+    favInstructor: 'Josh'
+});
 
 // PMTest.standUp('PM group')
 // PMTest.debugsCode(testStudent, 'Python')
 // PMTest.demo('HTML')
+// console.log(PMTest.gradClassName, PMTest.favInstructor)
