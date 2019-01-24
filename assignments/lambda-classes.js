@@ -47,18 +47,24 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`)
     }
+    changeGrade(student) {
+        let random = Math.floor((Math.random() * 10) + 1);
+        random *= Math.floor(Math.random()*2) === 1 ? 1 : -1;
+        student.grade += random;
+    }
 }
 
-//Test instructor:
-// const instructorTest = new Instructor({
-//     name: 'Fred',
-//     location: 'Bedrock',
-//     age: 37,
-//     gender: 'male',
-//     favLanguage: 'JavaScript',
-//     specialty: 'Front-end',
-//     catchPhrase: `Don't forget the homies`
-// })
+
+// Test instructor:
+const instructorTest = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+})
 
 // const testObj = {
 //     name: "<studentName>",
@@ -76,6 +82,7 @@ class Student extends Person {
         this.previousBackground = studentAttrs.previousBackground;
         this.className = studentAttrs.className;
         this.favSubjects = studentAttrs.favSubjects;
+        this.grade = studentAttrs.grade;
     }
     listSubjects() {
         this.favSubjects.forEach(function(element) {
@@ -88,18 +95,32 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`)
     }
+    graduate() {
+        while (this.grade <= 70) {
+            console.log(`Sorry, ${this.name}, Your grade is currently ${this.grade}. Re-grading your work...`) 
+            this.grade += 10;
+        }
+        return (`Congrats ${this.name}! You can graduate from Lambda School with a grade of ${this.grade}`)
+
+        // if (this.grade > 70) {
+        //     return `${this.name} has graduated from Lambda School`
+        // }
+    }
 }
 
 //Testing Student class:
-const testStudent = new Student({
-    name:'Jane',
-    age: 25,
-    location: 'New York',
-    gender: 'female',
-    favSubjects: ['HTML', 'CSS', 'JavaScript'],
-    previousBackground: 'artist',
-    className: 'FSW17'
-})
+// const testStudent = new Student({
+//     name:'Jane',
+//     age: 25,
+//     location: 'New York',
+//     gender: 'female',
+//     favSubjects: ['HTML', 'CSS', 'JavaScript'],
+//     previousBackground: 'artist',
+//     className: 'FSW17',
+//     grade: 84
+// })
+
+
 
 // console.log(testStudent.className, testStudent.previousBackground)
 // testStudent.listSubjects()
@@ -135,3 +156,40 @@ const PMTest = new ProjectManager({
 // PMTest.debugsCode(testStudent, 'Python')
 // PMTest.demo('HTML')
 // console.log(PMTest.gradClassName, PMTest.favInstructor)
+
+
+
+//Stretch Grade Change
+const stretchStudent = new Student({
+    name:'Student Joe',
+    age: 25,
+    location: 'New York',
+    gender: 'male',
+    favSubjects: ['HTML', 'CSS', 'JavaScript'],
+    previousBackground: 'carpentry',
+    className: 'FSW17',
+    grade: 60
+})
+
+const stretchInstructor = new Instructor({
+    name: 'Instructor Jill',
+    location: 'San Francisco',
+    age: 37,
+    gender: 'female',
+    favLanguage: 'Ruby',
+    specialty: 'back-end',
+})
+
+//Stretch Grade Change
+
+console.log(stretchStudent.grade)
+stretchInstructor.changeGrade(stretchStudent)
+console.log(stretchStudent.grade)
+
+
+//Graduate check:
+// console.log(stretchStudent.graduate())
+console.log(stretchStudent.grade)
+console.log(stretchStudent.graduate())
+
+
