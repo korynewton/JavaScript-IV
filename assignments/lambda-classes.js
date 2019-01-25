@@ -93,14 +93,14 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`
     }
-    graduate() {
-    //     while (this.grade <= 70) {
-    //         const grade = this.grade;
-    //         this.grade += 10;
-    //         return `Sorry, ${this.name}, Your grade is currently ${grade}. Re-grading your work...`
-    //     }
-    //     return (`Congrats ${this.name}! You can graduate from Lambda School with a grade of ${this.grade}`)
-    // }
+    graduateQuery() {
+        while (this.grade <= 70) {
+            const grade = this.grade;
+            this.grade += 10;
+            return `Sorry, ${this.name}, Your grade is currently ${grade}. Re-grading your work...try again later`
+        }
+        return (`Congrats ${this.name}! You can graduate from Lambda School with a grade of ${this.grade}`)
+    }
 }
 
 // Testing Student class:
@@ -186,8 +186,8 @@ console.log(stretchStudent.grade)
 //Graduate check:
 
 console.log(stretchStudent.grade)
-console.log(stretchStudent.graduate())
-console.log(stretchStudent.graduate())
-console.log(stretchStudent.graduate())
+console.log(stretchStudent.graduateQuery())
+console.log(stretchStudent.graduateQuery())
+console.log(stretchStudent.graduateQuery())
 
 
