@@ -8,11 +8,11 @@ class Person {
         this.gender = personAttrs.gender; 
     }
     speak() {
-        console.log(`Hello, my name is ${this.name} and I am from ${this.location}.`) 
+        return `Hello, my name is ${this.name} and I am from ${this.location}.`
     }
 }
 
-//Test Person 1:
+// Test Person 1:
 // const person1test = new Person ({
 //     name:'John',
 //     age: 93,
@@ -42,29 +42,29 @@ class Instructor extends Person {
         this.catchPhrase = instructorAttrs.catchPhrase;
     }
     demo(subject) {
-        console.log(`Today we are learning about ${subject}`)
+        return `Today we are learning about ${subject}`
     }
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`)
+        return `${student.name} receives a perfect score on ${subject}`
     }
     changeGrade(student) {
         let random = Math.floor((Math.random() * 10) + 1);
         random *= Math.floor(Math.random()*2) === 1 ? 1 : -1;
-        student.grade += random;
+        return student.grade += random;
     }
 }
 
 
 // Test instructor:
-const instructorTest = new Instructor({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
-    gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
-})
+// const instructorTest = new Instructor({
+//     name: 'Fred',
+//     location: 'Bedrock',
+//     age: 37,
+//     gender: 'male',
+//     favLanguage: 'JavaScript',
+//     specialty: 'Front-end',
+//     catchPhrase: `Don't forget the homies`
+// })
 
 // const testObj = {
 //     name: "<studentName>",
@@ -72,8 +72,8 @@ const instructorTest = new Instructor({
 
 // console.log(instructorTest.catchPhrase, instructorTest.name)
 // console.log(instructorTest.speak())
-// instructorTest.grade(testObj, 'basket weaving')
-// instructorTest.demo('javascript')
+// console.log(instructorTest.grade(testObj, 'basket weaving'))
+// console.log(instructorTest.demo('javascript'))
 
 //Student Class:
 class Student extends Person {
@@ -85,30 +85,25 @@ class Student extends Person {
         this.grade = studentAttrs.grade;
     }
     listSubjects() {
-        this.favSubjects.forEach(function(element) {
-            console.log(element);
-        });
+        return this.favSubjects.join()
     }
     PRAssignment(subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}`)
+        return `${this.name} has submitted a PR for ${subject}`
     }
     sprintChallenge(subject) {
-        console.log(`${this.name} has begun sprint challenge on ${subject}`)
+        return `${this.name} has begun sprint challenge on ${subject}`
     }
     graduate() {
-        while (this.grade <= 70) {
-            console.log(`Sorry, ${this.name}, Your grade is currently ${this.grade}. Re-grading your work...`) 
-            this.grade += 10;
-        }
-        return (`Congrats ${this.name}! You can graduate from Lambda School with a grade of ${this.grade}`)
-
-        // if (this.grade > 70) {
-        //     return `${this.name} has graduated from Lambda School`
-        // }
-    }
+    //     while (this.grade <= 70) {
+    //         const grade = this.grade;
+    //         this.grade += 10;
+    //         return `Sorry, ${this.name}, Your grade is currently ${grade}. Re-grading your work...`
+    //     }
+    //     return (`Congrats ${this.name}! You can graduate from Lambda School with a grade of ${this.grade}`)
+    // }
 }
 
-//Testing Student class:
+// Testing Student class:
 // const testStudent = new Student({
 //     name:'Jane',
 //     age: 25,
@@ -123,10 +118,10 @@ class Student extends Person {
 
 
 // console.log(testStudent.className, testStudent.previousBackground)
-// testStudent.listSubjects()
-// testStudent.PRAssignment('algebra')
-// testStudent.sprintChallenge('algebra')
-// testStudent.speak()
+// console.log(testStudent.listSubjects())
+// console.log(testStudent.PRAssignment('algebra'))
+// console.log(testStudent.sprintChallenge('algebra'))
+// console.log(testStudent.speak())
 
 
 //ProjectManager class
@@ -137,10 +132,10 @@ class ProjectManager extends Instructor {
         this.favInstructor = projectManagerAttrs.favInstructor;
     }
     standUp(channel) {
-        console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`)
+        return `${this.name} announces to ${channel}, @channel standy times!​​​​​`
     }
     debugsCode(student, subject){
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
+        return `${this.name} debugs ${student.name}'s code on ${subject}`
     }
 }
 
@@ -152,14 +147,15 @@ const PMTest = new ProjectManager({
     favInstructor: 'Josh'
 });
 
-// PMTest.standUp('PM group')
-// PMTest.debugsCode(testStudent, 'Python')
-// PMTest.demo('HTML')
+// console.log(PMTest.standUp('PM group'))
+// console.log(PMTest.debugsCode(testStudent, 'Python'))
+// console.log(PMTest.demo('HTML'))
 // console.log(PMTest.gradClassName, PMTest.favInstructor)
 
 
 
-//Stretch Grade Change
+//Stretch:
+
 const stretchStudent = new Student({
     name:'Student Joe',
     age: 25,
@@ -180,16 +176,18 @@ const stretchInstructor = new Instructor({
     specialty: 'back-end',
 })
 
-//Stretch Grade Change
+//Stretch Grade Change:
 
 console.log(stretchStudent.grade)
-stretchInstructor.changeGrade(stretchStudent)
+console.log(stretchInstructor.changeGrade(stretchStudent))
 console.log(stretchStudent.grade)
 
 
 //Graduate check:
-// console.log(stretchStudent.graduate())
+
 console.log(stretchStudent.grade)
+console.log(stretchStudent.graduate())
+console.log(stretchStudent.graduate())
 console.log(stretchStudent.graduate())
 
 
